@@ -1,0 +1,39 @@
+".container" : {
+  backgroundColor : "#FDFBE6"
+}
+
+"#lblName": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"
+  	}
+}
+
+"#lblDate": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"    	
+  	}
+}
+
+"#lblOptionsArrow": {
+	right : "0",
+	bottom: "-10",
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "28"
+  	}
+}
+
+"#customSearchBar": {
+	height: "28",
+	top: "8",
+	textAlign: "center", 
+	clearOnEdit: true, 
+	autocorrect: true, 
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED, 
+	left: "10", 
+	right: "10"
+	
+}

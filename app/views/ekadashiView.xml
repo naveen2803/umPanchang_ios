@@ -1,0 +1,25 @@
+<Alloy>
+		<Window class="container" title="Ekadashi" barColor="#FFCF5B" onClose="closeWin" >
+			<ListView id="elist" defaultItemTemplate="template1" separatorColor="#Ffcf5b" onItemclick="itemClickHandler" >
+					<Templates>
+						<ItemTemplate name="template1">
+							<View height="Ti.UI.SIZE">
+								<Label id="lblDate" bindId="lblDate" top="10" right="10" />
+								<Label id="lblName" bindId="lblName" top="10" left="10" right="85" bottom="10" />
+								<Label id="lblOptionsArrow" text="&#xf05a;"/>
+							</View>
+						</ItemTemplate>
+					</Templates>
+					
+					<SearchBar barColor="#ABABAB" hintText="Search Ekadashi" />
+					
+				</ListView>
+				
+				<OptionDialog id="dialog" onClick="onOptionSelect" cancel="1" selectedIndex="1">
+		            <Options>
+		                <Option>Add to calendar</Option>
+		                <Option>Cancel</Option>
+		            </Options>
+		        </OptionDialog>
+		</Window>
+</Alloy>

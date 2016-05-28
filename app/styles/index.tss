@@ -1,0 +1,231 @@
+".container": {
+	backgroundColor:"#FDFBE6"
+}
+
+".targetIconStyle": {
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "54"
+  	}  
+}
+
+".sunRiseIconStyle": {
+	top : "10",
+	left : "10",
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "24"
+  	} 
+}
+
+".todayEventsViewStyle": {
+	top : "400",
+	borderColor : "#Ffcf5b",
+	height : "40",
+	width: "75%",
+	borderRadius : "7",
+	backgroundColor : "#FFFFFF"
+}
+
+".sunSetIconStyle": {
+	top : "10",
+	left : "100",
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "21"
+  	} 
+}
+
+".dateTimeSectionStyle": {
+	top : "0",
+	height : "42",
+	backgroundColor : "#FFFFFF"
+}
+
+".lblDateTime": {
+	top : "15",
+	color: "#000000",
+  	font: {
+    	fontSize: "12",
+    	fontWeight: "bold"
+  	} 
+}
+
+".topHRule": {
+	height : "1",
+	width : Titanium.UI.FILL,
+	left : 0,
+	top : 41,
+	backgroundColor : "#Ffcf5b"
+	
+}
+
+".lblSamvatsaraTitleStyle": {
+	top : "10",
+	left : "10",
+	color: "#000000",
+  	font: {    	
+    	fontSize: "18"
+  	} 
+}
+
+"#lblSamvatsara": {
+	top : "10",
+	left : "115",
+	color: "#000000",
+  	font: {    	
+    	fontSize: "18"
+  	} 
+}
+
+".middleLineStyle": {
+	width : "1",
+	left : "50%",
+	top : "41",
+	height : "248",
+	backgroundColor : "#Ffcf5b"
+}
+
+".leftSectionStyle": {
+	width : "50%",
+	height : "230",
+	left : "10",
+	top : "36"
+}
+
+".rightSectionStyle": {
+	width : "50%",
+	height : "230",
+	left : "50%",
+	top : "36"
+}
+
+".lblSectionTitleStyle": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14",
+    	fontWeight : "bold"
+  	} 
+}
+
+".lblLeftSectionStyle": {
+	left : "0",	
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"    	
+  	} 
+}
+
+".lblRightSectionStyle": {
+	left : "10",	
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"    	
+  	} 
+}
+
+".circleStyle": {
+	width : "40",
+	height : "40",
+	borderRadius : "20",
+	borderColor : "#Ffcf5b",
+	backgroundColor : "#FFFFFF"
+}
+
+".arrowStyle": {	
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "25"
+  	} 
+}
+
+".leftMenuHeaderIconStyle": {
+	top : "25",
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "40"
+  	} 
+}
+
+".hRule": {
+	height : "1",
+	width : Titanium.UI.FILL,
+	left : 0,
+	backgroundColor : "#Ffcf5b"
+	
+}
+
+"#lblName": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"
+  	}
+}
+
+".pickDateViewStyle": {
+	top : "350",
+	borderColor : "#Ffcf5b",
+	height : "40",
+	width : "70%",
+	borderRadius : "7",
+	backgroundColor : "#FFFFFF",
+	bottom: "15" 
+}
+
+".pickerViewStyle": {
+	height : "251",
+	bottom : "-251",
+	
+}
+
+".calendarStyle": {
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "25"
+  	} 
+}
+
+".vRule": {
+	top : "0",
+	bottom : "0",
+	width : "1",
+	backgroundColor : "#Ffcf5b"
+}
+
+".selectDateTextStyle": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "18"    	
+  	} 
+}
+
+".pickDateViewStyle": {
+	top : "345",
+	borderColor : "#Ffcf5b",
+	height : "40",
+	width : "75%",
+	borderRadius : "7",
+	bottom : "15" 
+}
+
+".leftNavBarButtonStyle": {
+	color: "#000000",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "30"
+  	} 
+}
+
+
+".selectDateTextStyle": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "18"    	
+  	} 
+}

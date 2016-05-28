@@ -1,0 +1,59 @@
+<Alloy>
+		<Window class="container" title="Muhurta" barColor="#FFCF5B" onClose="closeWin">			
+			<ListView id="mlist" defaultItemTemplate="template1" separatorColor="#Ffcf5b" onItemclick="itemClickHandler" >
+					<Templates>
+						<ItemTemplate name="template1">
+							<View height="210">
+								<View height="41" backgroundColor="#FFFFFF" top="0">
+									<Label id="lblDate" bindId="lblDate" top="3" right="10" class="dateTimeStyle"/>
+									<Label id="lblTime" bindId="lblTime" top="18" right="10" bottom="10" class="dateTimeStyle" />
+									<Label id="mType" bindId="mType" top="10" left="10" class="titleStyle" ></Label>
+								</View>
+								
+								<View class="leftSectionStyle" top="41">
+									<Label text="Tithi" left="0" top="5"  class="leftTitleStyle" ></Label>
+										<Label id="mTithi" bindId="mTithi" left="0" top="25" class="normalTextStyle" ></Label>
+									<Label text="Lagna" left="0" top="65" class="leftTitleStyle" ></Label>
+										<Label id="mLagna" bindId="mLagna" left="0" top="85" class="normalTextStyle" ></Label>
+									<Label text="Amsha" left="0" top="125" class="leftTitleStyle" ></Label>
+										<Label id="mAmsha" bindId="mAmsha" left="0" top="145" class="normalTextStyle" ></Label>		
+								</View>
+								
+								<View class="rightSectionStyle" top="41">
+									<Label text="Nakshtra: " left="10" top="5" class="leftTitleStyle" ></Label>
+										<Label id="mNakshtra" bindId="mNakshtra" top="25" left="10" class="normalTextStyle" ></Label>								
+									<Label text="Rashi" top="65" left="10" class="leftTitleStyle" ></Label>
+										<Label id="mRashi" bindId="mRashi" top="85" left="10" class="normalTextStyle" ></Label>	
+								</View>	
+								
+								<View class="middleLineStyle"></View>
+								<Label id="lblOptionsArrow" text="&#xf05a;"/>
+							</View>
+							
+						</ItemTemplate>
+					</Templates>
+					
+					<SearchBar barColor="#ABABAB" hintText="Search Muhurat Type"/>
+					<!--<ListSection dataCollection="Muhurat" dataTransform="doTransform">
+						<ListItem mRashi:text="{mRashi}"
+								  mNakshtra:text="{mNakshtra}"
+								  mAmsha:text="{mAmsha}" 
+								  mLagna:text="{mLagna}"
+								  mTithi:text="{mTithi}"
+								  mType:text="{mType}"
+								  lblTime:text="{lblTime}"
+								  lblDate:text="{lblDate}"
+								  height="Ti.UI.SIZE" 
+								  searchableText="{mType}"/>
+								  
+					</ListSection>-->
+				</ListView>
+				
+				<OptionDialog id="dialog" onClick="onOptionSelect" cancel="1" selectedIndex="1">
+		            <Options>
+		                <Option>Add to calendar</Option>
+		                <Option>Cancel</Option>
+		            </Options>
+		        </OptionDialog> 
+		</Window>
+</Alloy>

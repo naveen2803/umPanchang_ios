@@ -1,0 +1,17 @@
+".container" : {
+  backgroundColor : "#FDFBE6"
+}
+
+"#lblName": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"
+  	}
+}
+
+"#lblDesc": {
+	color: "#ABABAB",
+  	font: {    	
+    	fontSize: "12"    	
+  	}
+}

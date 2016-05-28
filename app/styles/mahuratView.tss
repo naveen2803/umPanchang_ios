@@ -1,0 +1,62 @@
+".container": {
+	backgroundColor:"#FDFBE6"
+}
+
+".titleStyle": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "16",
+    	fontWeight : "bold"
+  	}
+}
+
+".leftTitleStyle": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14",
+    	fontWeight : "bold"
+  	}	
+}
+
+".normalTextStyle": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"    	
+  	}
+}
+
+".dateTimeStyle": {
+	color: "#000000",
+  	font: {    	
+    	fontSize: "12",
+    	fontWeight: "bold"    	
+  	}
+}
+
+".leftSectionStyle": {
+	width : "50%",
+	left : "10",
+}
+
+".rightSectionStyle": {
+	width : "50%",
+	left : "50%",
+}
+
+".middleLineStyle": {
+	width : "1",
+	left : "50%",
+	height : "130",
+	top : "60",
+	backgroundColor : "#Ffcf5b"
+}
+
+"#lblOptionsArrow": {
+	right : "0",
+	bottom: "-10",
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "28"
+  	} 
+}

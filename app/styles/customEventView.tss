@@ -1,0 +1,34 @@
+".container" : {
+  backgroundColor : "#FDFBE6"
+}
+
+".doneButtonStyle": {
+	borderColor : "#Ffcf5b",
+	height : "40",
+	width: "75%",
+	borderRadius : "7",
+	bottom : "15",
+	backgroundColor : "#FFFFFF"  
+}
+
+".addToCalendarTextStyle": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "18"    	
+  	} 
+}
+
+".selectedDateStyle": {
+	color: "#000000",
+  	font: {    	
+    	fontSize: "18"    	
+  	} 
+}
+
+".textInputStyle": {
+	borderRadius: "7", 
+	paddingLeft: "5", 
+	paddingRight: "5", 
+	borderColor: "#Ffcf5b", 
+	backgroundColor: "#ffffff",
+}

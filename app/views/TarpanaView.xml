@@ -1,0 +1,14 @@
+<Alloy>
+		<Window class="container" title="Tarpana" backgroundColor="#FFCF5B" barColor="#FFCF5B" onClose="closeWin" >		
+			<ListView id="tlist" defaultItemTemplate="template1" separatorColor="#Ffcf5b">
+				<Templates>
+					<ItemTemplate name="template1">
+						<View height="Ti.UI.SIZE">
+							<Label id="lblDate" bindId="lblDate" top="10" right="10"/>
+							<Label id="lblName" bindId="lblName" top="10" left="10" right="85" bottom="10"/>
+						</View>
+					</ItemTemplate>
+				</Templates>
+			</ListView>	
+		</Window>
+</Alloy>

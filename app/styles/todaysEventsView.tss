@@ -1,0 +1,10 @@
+".container": {
+	backgroundColor:"#FDFBE6"
+}
+
+".lblSectionTitleStyle": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "18"    	
+  	} 
+}

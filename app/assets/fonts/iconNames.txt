@@ -1,0 +1,21 @@
+arrow-back: &#xe600;
+
+arrow-forward: &#xe601;
+
+cloudy: &#xe602;
+
+dots-three-vertical: &#xe603;
+
+target: &#xe604;
+
+unread: &#xe605;
+
+sun: &#xe606;
+
+clipboard: &#xe607;
+
+triangle-right: &#xf05a;
+
+three-bars: &#xf05e;
+
+

@@ -1,0 +1,22 @@
+<Alloy>
+	<Window id="win" class="container" title="Videos" barColor="#FFCF5B" onClose="closeWin" onOpen="getVideos">
+			
+			<ListView id="vlist" defaultItemTemplate="template1" separatorColor="#Ffcf5b" onItemclick="itemClickHandler" >
+				<Templates>
+					<ItemTemplate name="template1">
+						<View height="80">
+							<View top="15">
+								<Label id="lblName" bindId="lblName" top="10" left="10" right="85" />
+								<Label id="lblDesc" bindId="lblDesc" top="25" left="10" right="85"/>
+							</View>
+						</View>
+						
+					</ItemTemplate>
+				</Templates>
+			</ListView>
+			
+			<View id="actIndBack" left="0" top="0" visible="false" width="100%" height="100%" backgroundColor="#000000" opacity="0.8">
+				<ActivityIndicator id="actInd"></ActivityIndicator>
+			</View>
+		</Window>
+</Alloy>

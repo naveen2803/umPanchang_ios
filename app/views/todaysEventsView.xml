@@ -1,0 +1,20 @@
+<Alloy>
+	<Window class="container" id="winTodaysEvent" onOpen="loadList" backgroundColor="#FFCF5B" barColor="#FFCF5B" onClose="closeWindow" >
+		<ListView id="eventlist" defaultItemTemplate="template1" separatorColor="#Ffcf5b" onItemclick="itemClickHandler">
+			<Templates>
+				<ItemTemplate name="template1">
+					<View height="Ti.UI.SIZE">
+						<Label id="lblType" bindId="lblType" top="10" left="10" class="lblSectionTitleStyle"/>
+						<Label id="lblName" bindId="lblName" top="30" left="10"/>
+					</View>
+				</ItemTemplate>
+			</Templates>
+		</ListView>
+		
+		<OptionDialog id="dialog" onClick="onOptionSelect">
+            <Options>
+                <Option>Add to calendar</Option>
+            </Options>
+    	</OptionDialog>	
+	</Window>
+</Alloy>

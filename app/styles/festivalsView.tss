@@ -1,0 +1,27 @@
+".container" : {
+  backgroundColor : "#FDFBE6"
+}
+
+"#lblName": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"
+  	}
+}
+
+"#lblDate": {
+	color: "#84270d",
+  	font: {    	
+    	fontSize: "14"    	
+  	}
+}
+
+"#lblOptionsArrow": {
+	right : "0",
+	bottom: "-10",
+	color: "#Ffcf5b",
+  	font: {
+    	fontFamily: "icomoon",
+    	fontSize: "28"
+  	}
+}

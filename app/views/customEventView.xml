@@ -1,0 +1,16 @@
+<Alloy>
+	<Window class="container" title="Add Event" id="winCustomEvent" barColor="#FFCF5B">
+		<Label id="lblSelectedDate" class="selectedDateStyle" left="15" top="15"></Label>
+		<Label text="Add event description" left="15" top="40"></Label>
+		<View left="15" right="15" top="70" height="40" class="textInputStyle" >
+			<TextField id="taCustomEvent" top="7" bottom="7" left="7" right="7"></TextField>
+		</View>
+		
+		
+		<View class="doneButtonStyle">
+			<View onClick="onAddToCalendar">
+				<Label class="addToCalendarTextStyle" text="Add to Calendar"></Label>
+			</View>
+		</View>
+	</Window>
+</Alloy>

@@ -1,0 +1,118 @@
+<Alloy>
+	<Window id="leftWindow" class="container">
+		<View class="hRule" top="70"></View>
+		<ListView id="menulist" top="71" defaultItemTemplate="template1" separatorColor="#Ffcf5b" onItemclick="menuItemClickHandler">
+			<Templates>
+				<ItemTemplate name="template1">
+					<View height="Ti.UI.SIZE">
+						<Label id="lblName" bindId="lblName" top="10" left="10" right="5" bottom="10"/>
+					</View>
+				</ItemTemplate>
+			</Templates>
+			<ListSection id="section">									
+					<ListItem lblName:text="Aradhane" />
+					<ListItem lblName:text="Ekadashi" />
+					<ListItem lblName:text="Muhurta" />
+					<ListItem lblName:text="Festivals/Special days" />
+					<ListItem lblName:text="Tarpana" />
+					<ListItem lblName:text="Shubha/Ashubha" />
+					<!-- <ListItem lblName:text="Satyatma Vani" /> -->
+			</ListSection>		
+		</ListView>	
+    </Window>
+	
+	<NavigationWindow id="nav">
+		<Window class="container" title="UM Panchanga" barColor="#FFCF5B">
+			<LeftNavButton>
+				<Label id="btnSelect" class="leftNavBarButtonStyle" text="&#xf05e;" onClick="onLeftNavbarClick" ></Label>
+			</LeftNavButton>
+			
+			<View class="dateTimeSectionStyle">
+				<Label text="&#xe606;" class="sunRiseIconStyle"></Label>
+				<Label id="lblSunriseTime" class="lblDateTime" left="38"></Label>
+				<Label text="&#xe602;" class="sunSetIconStyle"></Label>
+				<Label id="lblSunsetTime" class="lblDateTime" left="126"></Label>
+				<Label class="lblDateTime" id="lblDate" right="5"></Label>
+				<View class="topHRule"></View>
+			</View>
+			<ScrollView top="42" contentWidth="100%" width="Ti.UI.SIZE" scrollType="vertical">				
+				<Label text="Samvatsara:" class="lblSamvatsaraTitleStyle"></Label>
+				<Label id="lblSamvatsara" text="Durmukha Nama"></Label>
+				<View class="leftSectionStyle">
+					<Label class="lblSectionTitleStyle" left="0" top="5" text="Ayana"></Label>
+						<Label class="lblLeftSectionStyle" top="25" id="lblAyan"></Label>
+					<Label class="lblSectionTitleStyle" left="0" top="65" text="Masa"></Label>
+						<Label class="lblLeftSectionStyle" top="85" id="lblMasa"></Label>
+					<Label class="lblSectionTitleStyle" left="0" top="125" text="Tithi(Shradha)"></Label>
+						<Label class="lblLeftSectionStyle" top="145" id="lblTithi"></Label>
+					<Label class="lblSectionTitleStyle" left="0" top="185" text="Yoga"></Label>
+						<Label class="lblLeftSectionStyle" top="205" id="lblYoga"></Label>
+				</View>
+				
+				<View class="rightSectionStyle">
+					<Label class="lblSectionTitleStyle" left="10" top="5" text="Rutu"></Label>
+						<Label class="lblRightSectionStyle" top="25" id="lblRitu"></Label>
+					<Label class="lblSectionTitleStyle" left="10" top="65" text="Paksha"></Label>
+						<Label class="lblRightSectionStyle" top="85" id="lblPaksha"></Label>
+					<Label class="lblSectionTitleStyle" left="10" top="125" text="Nakshatra"></Label>
+						<Label class="lblRightSectionStyle" top="145" id="lblNakshatra"></Label>
+					<Label class="lblSectionTitleStyle" left="10" top="185" text="Karana"></Label>
+						<Label class="lblRightSectionStyle" top="205" id="lblKarana"></Label>
+				</View>
+				
+				<View class="middleLineStyle"></View>
+				
+				<View height="40" top="289">
+					<View left="20" right="20" height="1" borderColor="#Ffcf5b"></View>	
+				</View>
+				
+				<!-- CENTER ICON -->	
+				<View height="Ti.UI.SIZE" top="289">
+					<View class="circleStyle" onClick="fillTodaysValues">
+						<Label text="&#xe604;" class="arrowStyle"></Label>
+					</View>
+				</View>
+				
+				<!-- LEFT ARROW -->
+				<View class="circleStyle" top="289" left="15" onClick="onPreviousDateClick">
+					<Label text="&#xe600;" class="arrowStyle"></Label>
+				</View>
+				
+				<!-- RIGHT ARROW -->
+				<View class="circleStyle" top="289" right="15" onClick="nextDate">
+					<Label text="&#xe601;" class="arrowStyle"></Label>
+				</View>
+				
+				<View  class="pickDateViewStyle" layout="horizontal" backgroundColor="#ffffff" >
+					<View width="70%" onClick="pickerSlideIn" >
+						<Label class="selectDateTextStyle" text="Select Date"></Label>
+					</View>
+					<View class="vRule"></View>
+					<View onClick="addCustomEvent">
+						<Label class="calendarStyle" text="&#xe607;"></Label>
+					</View>
+				</View>
+				
+				<View class="todayEventsViewStyle" onClick="showTodayEvents">
+					<Label id="btnEvents" class="selectDateTextStyle"></Label>
+				</View>
+			</ScrollView>
+			
+			<View id="pickerView" class="pickerViewStyle" layout="vertical" >
+				<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
+		            <Items>
+		                <Button id="btnSelect" title="Select" style="Ti.UI.iPhone.SystemButtonStyle.DONE" onClick="onPickerSelect" />
+		                <FlexSpace/>
+		                <Button id="btnCancel" systemButton="Ti.UI.iPhone.SystemButton.CANCEL" onClick="onPickerCancel" />
+		            </Items>
+		        </Toolbar>
+				
+				<Picker id="datePicker" 
+            	minDate="March 21, 2015"
+  				maxDate="April 7, 2016"
+            	type="Ti.UI.PICKER_TYPE_DATE"
+            	onChange="onDateChange" />
+			</View>
+		</Window>
+	</NavigationWindow>				
+</Alloy>
