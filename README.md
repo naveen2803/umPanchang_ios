@@ -1,2 +1,3 @@
 # umPanchang_ios
-Sample Titanium Appcelerator app for IOS
+Sample Titanium Appcelerator app for iOS
+
