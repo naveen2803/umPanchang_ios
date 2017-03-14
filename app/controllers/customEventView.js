@@ -5,24 +5,7 @@ $.lblSelectedDate.text = d.getDate() + " " + getMonthName(d.getMonth()) + ", " +
 
 function onAddToCalendar()
 {
-	if(Ti.Calendar.eventsAuthorization == Ti.Calendar.AUTHORIZATION_AUTHORIZED) 
-	{
-	    addEventToCalecdar(d);
-	} 
-	else 
-	{
-	    Ti.Calendar.requestEventsAuthorization(function(e)
-	    {
-            if (e.success) 
-            {
-                addEventToCalecdar(d);
-            } 
-            else 
-            {
-                displayAlert("Access to calendar is not allowed", "Need permission");
-            }
-        });
-	}
+	addEventToCalecdar(d);
 }
 
 function getMonthName(monthNumber)
@@ -61,18 +44,19 @@ function addEventToCalecdar(d)
 {
 	if($.taCustomEvent.value != "")
 	{
-		var calendar = Ti.Calendar.defaultCalendar;
+		var selectableCalendars = Ti.Calendar.allCalendars;
+		var CALENDAR_TO_USE = selectableCalendars[0].id;
+		var calendar = Ti.Calendar.getCalendarById(CALENDAR_TO_USE);
 		
 		var eventYear = parseInt(d.getFullYear());
 		var eventMonth = parseInt(d.getMonth());
 		var eventDate = parseInt(d.getDate());
-		var existingEvents = calendar.getEventsInDate( eventYear, eventMonth + 1, eventDate );
+		var existingEvents = calendar.getEventsInDate( eventYear, eventMonth, eventDate );
 		
 		var doEventExist = false;
 		for(var i = 0;  i < existingEvents.length; i++)
 		{
-			if( existingEvents[i].notes ==  $.taCustomEvent.value
-				&& existingEvents[i].title == "UM Panchanga")
+			if( existingEvents[i].description ==  $.taCustomEvent.value)
 			{
 				doEventExist = true;
 				break;
@@ -86,35 +70,30 @@ function addEventToCalecdar(d)
 			var eventEnds = new Date(eventYear, eventMonth, eventDate, 14, 0, 0);
 			var details = {
 			    title: 'UM Panchanga',
-			    notes: $.taCustomEvent.value,
+			    description: $.taCustomEvent.value,
 			    begin: eventBegins,
-			    end: eventEnds,
-			    allDay: true
+			    end: eventEnds
 			};
 		
 			var event = calendar.createEvent(details);
-			event.save(Ti.Calendar.SPAN_THISEVENT);
-			displayAlert("Event added to calendar", "Success");
 		}
-		else
-			displayAlert("Event already exists", "Duplicate entry");
-			
+		
+		showToast("Event added to calendar");
 		closeWindow();
 	}
 	else
 	{
-		displayAlert("Please enter description", "Invalid data");
+		showToast("Please enter description");
 	}
 }
 
-function displayAlert(alertMessage, alertTitle)
+function showToast(toastMessage)
 {
-	var dialog = Ti.UI.createAlertDialog({
-	    message: alertMessage,
-	    ok: 'OK',
-	    title: alertTitle
-	  });
-	  dialog.show();
+	var toast = Ti.UI.createNotification({
+	    message: toastMessage,
+	    duration: Ti.UI.NOTIFICATION_DURATION_LONG
+	});
+	toast.show();
 }
 
 function closeWindow()

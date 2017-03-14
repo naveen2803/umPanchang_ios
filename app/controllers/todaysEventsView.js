@@ -35,9 +35,18 @@ function loadList(e)
 function itemClickHandler(e)
 {
 	selectedItem = $.eventlist.sections[e.sectionIndex].items[e.itemIndex];
-	$.dialog.title = $.eventlist.sections[e.sectionIndex].items[e.itemIndex].properties.searchableText + "(" + selectedItem.properties.eventDate + "/" + selectedItem.properties.eventMonth + "/" + selectedItem.properties.eventYear + ")";
-	$.dialog.selectedIndex = -1;
-	$.dialog.show();
+	if($.eventlist.sections[e.sectionIndex].items[e.itemIndex].properties.eventType == "Aradhane")
+	{
+		$.dialogAradhane.title = $.eventlist.sections[e.sectionIndex].items[e.itemIndex].properties.searchableText + "(" + selectedItem.properties.eventDate + "/" + selectedItem.properties.eventMonth + "/" + selectedItem.properties.eventYear + ")";
+		$.dialogAradhane.selectedIndex = -1;
+		$.dialogAradhane.show();
+	}
+	else
+	{
+		$.dialog.title = $.eventlist.sections[e.sectionIndex].items[e.itemIndex].properties.searchableText + "(" + selectedItem.properties.eventDate + "/" + selectedItem.properties.eventMonth + "/" + selectedItem.properties.eventYear + ")";
+		$.dialog.selectedIndex = -1;
+		$.dialog.show();
+	}
 }
 
 function onOptionSelect(e)
@@ -48,6 +57,35 @@ function onOptionSelect(e)
 		getDirections();
 }
 
+function getDirections()
+{
+	Titanium.Geolocation.getCurrentPosition(function(e)
+	{
+	    if (e.error)
+	    {
+	        var dialog = Ti.UI.createAlertDialog({
+			    message: 'Please turn on the GPS on your device',
+			    ok: 'Ok',
+			    title: 'Warning'
+			  });
+			 dialog.show();
+	        return;
+	    }
+	 
+	    var longitude = e.coords.longitude;
+	    var latitude = e.coords.latitude;
+	    var altitude = e.coords.altitude;
+	    var heading = e.coords.heading;
+	    var accuracy = e.coords.accuracy;
+	    var speed = e.coords.speed;
+	    var timestamp = e.coords.timestamp;
+	    var altitudeAccuracy = e.coords.altitudeAccuracy;
+	    
+	    var address = "saddr=" + latitude + "," + longitude + "&daddr=" + selectedItem.properties.eventlat + "," + selectedItem.properties.eventlng;
+	    var navigationURL = 'http://maps.google.com/maps?' + address;
+	    Titanium.Platform.openURL(navigationURL);
+	});
+}
 
 function addEventToCalecdar()
 {
@@ -83,24 +121,21 @@ function addEventToCalecdar()
 		};
 	
 		var event = calendar.createEvent(details);
-		
-		displayAlert("Event added to calendar", "Success");
 	}
-	else
-		displayAlert("Event already exists", "Duplicate entry");
+	
+	showToast();
 }
 
-function displayAlert(alertMessage, alertTitle)
+function showToast()
 {
-	var dialog = Ti.UI.createAlertDialog({
-	    message: alertMessage,
-	    ok: 'OK',
-	    title: alertTitle
-	  });
-	  dialog.show();
+	var toast = Ti.UI.createNotification({
+	    message:"Event added to calendar",
+	    duration: Ti.UI.NOTIFICATION_DURATION_LONG
+	});
+	toast.show();
 }
 
 function closeWindow()
 {
-	Alloy.Globals.window.leftWindow = Alloy.Globals.leftWindow;
+	$.winTodaysEvent.close();
 }

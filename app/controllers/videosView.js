@@ -4,7 +4,6 @@ var GET_VIDEOS_SERVICE = "http://www.pavamana.com/services/umPanchang/getVideos.
 var selectedItem;
 var webview;
 var buttons;
-var webViewAdded = false;
 
 function getVideos()
 {
@@ -25,8 +24,10 @@ function getVideos()
 		Ti.API.info(this.responseText);
 		if(this.status == '200') {
 			if(this.readyState == 4) {
+				alert(this.responseText);
 	  			var response = JSON.parse(this.responseText);
 	  			createListData(response);
+	  			alert("hi");
 			}
 			else {
 	  			displayAlert("Error", "Bad Server, Please try again!"); 
@@ -56,6 +57,10 @@ function createListData(result)
 	for(var i = 0; i < result.length; i++)
 	{
 		var obj = result[i];
+		var guidArray = obj.videoLink.split('?v=');
+	    var guid = guidArray[1];
+	    	guid = guid.split("&")[0];
+	    	
 		listData.push({	
 						lblDesc: {
 							text: obj.videoDesc
@@ -69,6 +74,7 @@ function createListData(result)
 							vMonth: obj.availableDate.split('_')[1],
 							vDate: obj.availableDate.split('_')[0],
 							videoURL: obj.videoLink,
+							videoId : guid,
 							videoAvailable: obj.available
 						}
 					});	
@@ -82,19 +88,10 @@ function createListData(result)
 function itemClickHandler(e)
 {
 	selectedItem = $.vlist.sections[e.sectionIndex].items[e.itemIndex];
-	
 	if(selectedItem.properties.videoAvailable == "Y")
 	{
-		webview = Titanium.UI.createWebView({url:selectedItem.properties.videoURL});
-	    $.win.add(webview);
-	    
-	    buttons = Titanium.UI.createButtonBar({
-		    labels:['Close Video']
-		});
-		buttons.addEventListener("click", onCloseVideo);
-		$.win.rightNavButton = buttons;
-		
-		webViewAdded = true;
+		var videoPlayerWin = Alloy.createController('VideoPlayerView',{videoLink: selectedItem.properties.videoURL, videoId: selectedItem.properties.videoId}).getView();	
+		videoPlayerWin.open({animated: true});
 	}
 	else
 	{
@@ -105,23 +102,23 @@ function itemClickHandler(e)
 function addToCalendar()
 {
 	if(Ti.Calendar.eventsAuthorization == Ti.Calendar.AUTHORIZATION_AUTHORIZED) 
-		{
-		    addEventToCalecdar();
-		} 
-		else 
-		{
-		    Ti.Calendar.requestEventsAuthorization(function(e)
-		    {
-	            if (e.success) 
-	            {
-	                addEventToCalecdar();
-	            } 
-	            else 
-	            {
-	                displayAlert("Access to calendar is not allowed", "Need permission");
-	            }
-	        });
-		}
+	{
+	    addEventToCalecdar();
+	} 
+	else 
+	{
+	    Ti.Calendar.requestEventsAuthorization(function(e)
+	    {
+            if (e.success) 
+            {
+                addEventToCalecdar();
+            } 
+            else 
+            {
+                displayAlert("Access to calendar is not allowed", "Need permission");
+            }
+        });
+	}
 }
 
 function addEventToCalecdar()
@@ -164,14 +161,6 @@ function addEventToCalecdar()
 		displayAlert("Event already exists", "Duplicate entry");
 }
 
-function onCloseVideo(e)
-{
-	if(webViewAdded)
-	{
-		$.win.remove(webview);
-		webViewAdded = false;
-	}	
-}
 
 /**
  * @AUTHOR			- NAVEEN MALHOTRA
@@ -197,5 +186,5 @@ function hidePageLoader()
 
 function closeWin()
 {
-	Alloy.Globals.window.leftWindow = Alloy.Globals.leftWindow;
+	$.winVideos.close();
 }
