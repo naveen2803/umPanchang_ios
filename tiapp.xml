@@ -3,7 +3,7 @@
   xmlns:ti="http://ti.appcelerator.org">
   <id>com.madhwa.apps.UMPanchanga</id>
   <name>UM Panchanga</name>
-  <version>2.0.0</version>
+  <version>3.0.0</version>
   <publisher>naveenmalhotra</publisher>
   <url>http://www.pavamana.com</url>
   <description>undefined</description>
@@ -52,7 +52,6 @@
     <modules>
       <!--<module platform="iphone">ti.sq</module>-->
       <module platform="iphone">dk.napp.slidemenu</module>
-      <module platform="android">dk.napp.drawer</module>
       <module platform="commonjs">ti.cloud</module>
     </modules>
     <deployment-targets>
